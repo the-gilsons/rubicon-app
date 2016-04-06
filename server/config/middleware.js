@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const utils = require('./utils');
 const joinPaths = require('path').join;
 
-module.exports = (app, express) => {
+const applyMiddleware = (app, express) => {
   // middlewares
   
   // morgan for loggin our incoming requests during development
@@ -23,3 +23,5 @@ module.exports = (app, express) => {
   // feeding up dummy html for now
   app.use(express.static(joinPaths(__dirname, '../../')));
 }
+
+module.exports = applyMiddleware;
