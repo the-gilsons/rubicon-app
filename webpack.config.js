@@ -20,9 +20,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/index.js'),
+  entry: path.resolve(__dirname, 'client/src/index.js'),
   output: {
-    path: path.resolve(__dirname, 'public/dist'),
+    path: path.resolve(__dirname, 'client/public/dist'),
     filename: 'bundle.js'
   },
   plugins: plugins,
