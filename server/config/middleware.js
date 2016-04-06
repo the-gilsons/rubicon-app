@@ -21,7 +21,7 @@ const applyMiddleware = (app, express) => {
   app.use(utils.logError);
   
   // feeding up dummy html for now
-  app.use(express.static(joinPaths(__dirname, '../../')));
+  app.use(express.static(joinPaths(__dirname, '../../public')));
 }
 
 module.exports = applyMiddleware;
