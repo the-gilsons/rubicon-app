@@ -1,0 +1,10 @@
+insert into regions (publicID) values ('01');
+insert into regions (publicID) values ('02');
+insert into regions (publicID) values ('03');
+insert into regions (publicID) values ('04');
+insert into regions (publicID) values ('05');
+insert into regions (publicID) values ('06');
+insert into regions (publicID) values ('07');
+insert into regions (publicID) values ('08');
+insert into regions (publicID) values ('09');
+insert into regions (publicID) values ('10');
