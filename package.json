@@ -8,7 +8,8 @@
     "start": "node server/server"
   },
   "engines": {
-    "node": "5.10.0"
+    "node": "5.10.0",
+    "npm": "3.8.5"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,6 @@
   },
   "homepage": "https://github.com/the-gilsons/rubicon-app#readme",
   "devDependencies": {
-    "morgan": "^1.7.0"
   },
   "dependencies": {
     "body-parser": "^1.15.0",
@@ -38,6 +38,7 @@
     "express": "^4.13.4",
     "http": "0.0.0",
     "lodash": "^4.8.2",
+    "morgan": "^1.7.0",
     "path": "^0.12.7",
     "pg": "^4.5.2",
     "pg-rxjs": "^1.0.16",
