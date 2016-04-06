@@ -1,4 +1,3 @@
-<<<<<<< 6924d55f2efc8d7a1d584322aa25dff187ea1728
 # Rubicon app for Mobilizing Volunteers
 
 This application is meant to help Team Rubicon to mobilize members to a active disaster as quickly as possible.
