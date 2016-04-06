@@ -1,0 +1,27 @@
+{
+  "name": "rubicon-app",
+  "version": "1.0.0",
+  "description": "rubicon app for docusign hack-for-good",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-gilsons/rubicon-app.git"
+  },
+  "keywords": [
+    "rubicon",
+    "app",
+    "hack",
+    "for",
+    "good",
+    "docusign"
+  ],
+  "author": "https://github.com/the-gilsons/",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/the-gilsons/rubicon-app/issues"
+  },
+  "homepage": "https://github.com/the-gilsons/rubicon-app#readme"
+}
