@@ -9,6 +9,7 @@ CREATE TABLE Regions (
 
 CREATE TABLE SubRegions (
   id SERIAL PRIMARY KEY,
+  title VARCHAR(50) UNIQUE,
   publicID VARCHAR(2) UNIQUE,
   parent INTEGER,
   
