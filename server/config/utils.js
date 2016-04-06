@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = {
+const utils = {
   // typical express error handler function
   errorHandler: (err, req, res, next) => {
     res.status(500).send({
@@ -13,3 +13,5 @@ module.exports = {
     next(err);
   }
 }
+
+module.exports = utils;

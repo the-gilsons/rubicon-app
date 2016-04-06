@@ -8,7 +8,8 @@
     "start": "node server/server"
   },
   "engines": {
-    "node": "5.10.0"
+    "node": "5.10.0",
+    "npm": "3.8.5"
   },
   "repository": {
     "type": "git",
