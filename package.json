@@ -7,6 +7,9 @@
     "start:dev": "nodemon server/server",
     "start": "node server/server"
   },
+  "engines": {
+    "node": "5.10.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/the-gilsons/rubicon-app.git"
