@@ -40,6 +40,7 @@
     "dotenv": "^2.0.0",
     "express": "^4.13.4",
     "http": "0.0.0",
+    "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.8.2",
     "morgan": "^1.7.0",
     "path": "^0.12.7",
@@ -50,6 +51,7 @@
     "react-redux": "^4.4.1",
     "react-router": "^2.0.1",
     "redux": "^3.3.1",
+    "redux-thunk": "^2.0.1",
     "url": "^0.11.0",
     "webpack": "^1.12.14"
   }
