@@ -5,7 +5,9 @@
   "main": "main.js",
   "scripts": {
     "start:dev": "nodemon server/server",
-    "start": "node server/server"
+    "start": "node server/server",
+    "build": "node_modules/.bin/webpack",
+    "postinstall": "npm run build"
   },
   "engines": {
     "node": "5.10.0",
@@ -30,18 +32,34 @@
   },
   "homepage": "https://github.com/the-gilsons/rubicon-app#readme",
   "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.7.4",
+    "babel-loader": "^6.2.4"
   },
   "dependencies": {
+    "async": "^2.0.0-rc.2",
+    "babel-polyfill": "^6.7.4",
+    "bluebird": "^3.3.4",
     "body-parser": "^1.15.0",
     "docusign-esign": "2.0.3",
     "dotenv": "^2.0.0",
     "express": "^4.13.4",
     "http": "0.0.0",
+    "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.8.2",
     "morgan": "^1.7.0",
     "path": "^0.12.7",
     "pg": "^4.5.2",
     "pg-rxjs": "^1.0.16",
-    "url": "^0.11.0"
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8",
+    "react-redux": "^4.4.1",
+    "react-router": "^2.0.1",
+    "react-router-redux": "^4.0.1",
+    "redux": "^3.3.1",
+    "redux-thunk": "^2.0.1",
+    "request": "^2.70.0",
+    "url": "^0.11.0",
+    "webpack": "^1.12.14"
   }
 }
