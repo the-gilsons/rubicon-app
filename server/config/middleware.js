@@ -3,8 +3,10 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const utils = require('./utils');
 const joinPaths = require('path').join;
+const userRouterConfig = require('./../routes/userRoutes');
 
 const applyMiddleware = (app, express) => {
+  let userRouter = express.Router();
   // middlewares
   
   // morgan for loggin our incoming requests during development
@@ -20,6 +22,10 @@ const applyMiddleware = (app, express) => {
   app.use(utils.errorHandler);
   app.use(utils.logError);
   
+  app.use('/api/users', userRouter);
+  
+  userRouterConfig(userRouter);
+
   // feeding up dummy html for now
   app.use(express.static(joinPaths(__dirname, '../../client/public')));
 }
