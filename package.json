@@ -4,7 +4,7 @@
   "description": "rubicon app for docusign hack-for-good",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron main"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/the-gilsons/rubicon-app/issues"
   },
-  "homepage": "https://github.com/the-gilsons/rubicon-app#readme"
+  "homepage": "https://github.com/the-gilsons/rubicon-app#readme",
+  "devDependencies": {
+    "electron-prebuilt": "^0.37.4"
+  },
+  "dependencies": {
+    "docusign-esign": "2.0.3"
+  }
 }
