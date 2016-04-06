@@ -36,3 +36,20 @@ CREATE TABLE Users (
   
   FOREIGN KEY (subregionID) REFERENCES SubRegions(id)
 );
+
+CREATE TABLE Disasters (
+  id SERIAL PRIMARY KEY,
+  type VARCHAR(100),
+  location VARCHAR(200),
+  details VARCHAR(200),
+  duration VARCHAR(100)
+);
+
+CREATE TABLE UsersDisasters (
+  id SERIAL PRIMARY KEY,
+  disasterID INTEGER,
+  userID INTEGER,
+  
+  FOREIGN KEY (userID) REFERENCES Users(id),
+  FOREIGN KEY (disasterID) REFERENCES Disasters(id)
+);
