@@ -4,9 +4,11 @@ const bodyParser = require('body-parser');
 const utils = require('./utils');
 const joinPaths = require('path').join;
 const userRouterConfig = require('./../routes/userRoutes');
+const mailerRouterConfig = require('./../routes/mailRoutes');
 
 const applyMiddleware = (app, express) => {
   let userRouter = express.Router();
+  let mailerRouter = express.Router();
   // middlewares
   
   // morgan for loggin our incoming requests during development
@@ -23,8 +25,10 @@ const applyMiddleware = (app, express) => {
   app.use(utils.logError);
   
   app.use('/api/users', userRouter);
+  app.use('/api/emailList', mailerRouter);
   
   userRouterConfig(userRouter);
+  mailerRouterConfig(mailerRouter);
 
   // feeding up dummy html for now
   app.use(express.static(joinPaths(__dirname, '../../client/public')));
