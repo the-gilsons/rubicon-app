@@ -1,7 +1,7 @@
 # Rubicon app for Mobilizing Volunteers
 ![rubicon-icon](client/public/assets/X.png)
 
-This application is meant to help Team Rubicon to mobilize members to a active disaster as quickly as possible.
+This application is meant to help Team Rubicon mobilize its members during an active disaster as quickly as possible.
 
 - deployed [here](https://gilson.herokuapp.com)
 
