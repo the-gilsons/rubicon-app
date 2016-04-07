@@ -4,35 +4,48 @@
     <meta charset="UTF-8">
     <title>Team Rubicon</title>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
     <!-- <div class="panel panel-blue">
+    <div class="panel panel-blue">
+
     	<div class="panel-heading">
-		    <h3 class="panel-title">Team Rubicon DocuSign Mailer</h3>
+        <img class="logo" src="./assets/trL.png">
     	</div>
+
     	<div class="panel-body">
 		    <form action="/api/emailList" method="post">
+
 		    	<div class="form-group">
 			    	<label>DocuSign Email:</label>
-			    	<input type="text" name="docuSignEmail" required>
+			    	<input type="text" name="docuSignEmail" placeholder="DocuSign Login Email" required>
 		    	</div>
-		    	<div class="form-group">
+		    
+        	<div class="form-group">
 			    	<label>DocuSign Password:</label>
-			    	<input type="text" name="docuSignPass" required>
+			    	<input type="text" name="docuSignPass" placeholder="DocuSign Password" required>
 		    	</div>
-		    	<div class="form-group">
+		    
+        	<div class="form-group">
 			    	<label>Docusign Template ID:</label>
-			    	<input type="text" name="templateID" required>
+			    	<input type="text" name="templateID" placeholder="DocuSign Template ID" required>
 		    	</div>
-		    	<div class="form-group">
+		    
+        	<div class="form-group">
 			    	<label>DocuSign Template Name:</label>
-			    	<input type="text" name="templateName" required>
+			    	<input type="text" name="templateName" placeholder="Form Name" required>
 		    	</div>
-		    	<div class="form-group">
+		    
+        	<div class="form-group">
 			    	<label>CSV File:</label>
 			    	<input multiple type="file" id="csv">
 		    	</div>
-		    	<input type="hidden" id="parsedCSV" name="emailList">
+		    
+        	<input type="hidden" id="parsedCSV" name="emailList">
 		    	<button>Send Documents to sign!</button>
 		    </form>
     	</div>
@@ -40,6 +53,12 @@
     <div id="app"></div>
     <script src='/dist/bundle.js'></script>
     <!-- <script type="text/javascript">
+
+    </div>
+    <div id="app"></div>
+    <script src='/dist/bundle.js'></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+    <script type="text/javascript">
     	$('button').prop('disabled', true);
     	$('#csv').on('change', function(){
 
