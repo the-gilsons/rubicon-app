@@ -12,18 +12,17 @@ module.exports = {
 
     let count = 0;
 
-    async.eachSeries(emailList, (item, cb) => {
-      let last = false;
-      count++;
-      if(count === emailList.length){
-          last = true;
-      }
-      mailer(docuSignEmail, docuSignPass, item, templateInfo, last, cb);
-    }, function(err){
-      if(err.length){
-          console.error(err);
+    var emailToSend = emailList.map(function(item){
+        return function(callback){
+          mailer(docuSignEmail, docuSignPass, item, templateInfo, callback);
+        };
+    })
+
+    async.parallel(emailToSend, function(err, logs){
+      if(logs.length){
+          console.log('Some emails failed to send!');
           res.status(400);
-          res.send(JSON.stringify(err));
+          res.send(JSON.stringify(logs));
       } else {
           res.send('Operation Successful');
       }
