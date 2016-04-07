@@ -1,10 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import createLogger from 'redux-logger';
 import {hashHistory} from 'react-router';
 import {syncHistory} from 'react-router-redux';
 import rootReducer from '../reducers/rootReducer';
-import DevTools from '../containers/DevTools';
 
 export default function configureStore(initialState) {
   const reduxRouterMiddleware = syncHistory(hashHistory);
@@ -15,9 +13,7 @@ export default function configureStore(initialState) {
     compose(
       applyMiddleware(
         thunk,
-        createLogger(),
-        reduxRouterMiddleware),
-      DevTools.instrument()
+        reduxRouterMiddleware)
     )
   )
 
