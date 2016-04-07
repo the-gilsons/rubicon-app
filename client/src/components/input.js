@@ -1,12 +1,16 @@
 import React from 'react';
 
-var Input = function({data, callback}){
-  return(
-    <div>
-      <label htmlFor={data.title}>{data.title}</label>
-      <input type={data.type} id={data.title} onChange={callback(this)}/>
-    </div>
-  )
-}
+export default class Input extends React.Component{
+  constructor(props){
+    super(props)
+  }
 
-export default Input;
+  render(){
+    return(
+      <div>
+        <label htmlFor={this.props.data.title}>{this.props.data.title}</label>
+        <input type={this.props.data.type} id={this.props.data.title} ref={this.props.data.ref}/>
+      </div>
+    )
+  }
+}
