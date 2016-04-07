@@ -1,5 +1,6 @@
 'use strict'
 const mailer = require('./docuSignMailer.js');
+const async = require('async');
 module.exports = {
     massMailer: function(req, res) {
         const emailList = req.body.emailList;
@@ -7,9 +8,9 @@ module.exports = {
         const docuSignPass = req.body.docuSignPass;
         const volunteerInfo = req.body.volunteerInfo;
         const templateInfo = req.body.templateInfo;
-        emailList.forEach(function(volunteer) {
-            mailer(docuSignEmail, docuSignPass, volunteerInfo, templateInfo)
+        async.eachSeries(emailList, function(item) {
+            mailer(docuSignEmail, docuSignPass, volunteerInfo, templateInfo);
         });
-        res.send('Operation complete!');
+        res.send('Operation Complete');
     }
 };
