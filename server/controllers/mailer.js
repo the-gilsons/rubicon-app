@@ -5,15 +5,16 @@ const async = require('async');
 module.exports = {
   massMailer: function(req, res) {
 
-    console.log(Object.keys(req.body));
+    console.log(req.body);
 
-    const emailList = JSON.parse(req.body.emailList);
+    const emailList = req.body.emailList;
     const docuSignEmail = req.body.docuSignEmail;
     const docuSignPass = req.body.docuSignPass;
     const templateInfo = {
-      id: req.body.templateID,
-      roleName: req.body.templateName
+      id: req.body.templateInfo.id,
+      roleName: req.body.templateInfo.role
     };
+    console.log('this is template info: ', templateInfo);
 
 
     var emailToSend = emailList.map(function(item){
