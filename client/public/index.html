@@ -3,10 +3,24 @@
   <head>
     <meta charset="UTF-8">
     <title>Team Rubicon</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   </head>
   <body>
     <h1>Team Rubicon</h1>
+    <form action="/email" method="post">
+    	DocuSign Email: <input type="text" name="docuSignEmail"><br>
+    	DocuSign Password: <input type="text" name="docuSignPass"><br>
+    	Docusign Template ID: <input type="text" name="templateID"><br>
+    	DocuSign Template Name: <input type="text" name="templateName"><br>
+    	CSV File: <input type="file" id="csv">
+    	<button>Send Documents to fill!</button>
+    </form>
     <div id="app"></div>
     <script src='/dist/bundle.js'></script>
+    <script type="text/javascript">
+    	var fetch = function(){
+
+    	}
+    </script>
   </body>
 </html>
