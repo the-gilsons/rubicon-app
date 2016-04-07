@@ -6,8 +6,8 @@ import {Provider} from 'react-redux';
 import {Router, Route, IndexRoute} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
 import configStore from './store/configStore';
-import App from './component/App';
-import Home from './component/Home';
+import App from './components/App';
+import Home from './components/Home';
 
 const store = configStore();
 const history = syncHistoryWithStore(hashHistory, store);
