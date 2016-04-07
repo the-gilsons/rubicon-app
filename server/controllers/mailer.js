@@ -1,5 +1,5 @@
 'use strict'
-const mailer = require('./docuSignMailer.js');
+const mailer = require('./../docuSignMailer');
 const async = require('async');
 module.exports = {
     massMailer: function(req, res) {
