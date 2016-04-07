@@ -3,7 +3,7 @@ import React from 'react';
 var Button = function({data, callback}){
   return (
     <div>
-      <button onClick={callback} disabled={data.disable}>{data.text}</button>
+      <button onClick={callback}>{data.text}</button>
     </div>
   )
 };

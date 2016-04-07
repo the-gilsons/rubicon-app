@@ -27,7 +27,7 @@ function mapDispatchToProps(dispatch){
 
 function mapStateToProps(state){
   return {
-    canSubmit: true//state.mailer.canSubmit
+    data: state
   }
 }
 
