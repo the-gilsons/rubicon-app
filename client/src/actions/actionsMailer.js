@@ -61,7 +61,8 @@ export function postDocuSignInfo(items){
     fetch('/api/emailList', {
       method: 'post',
       headers: {
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(items)
     })
