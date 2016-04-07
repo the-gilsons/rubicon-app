@@ -1,6 +1,6 @@
 'use strict'
 
-const mailer = require('./../massMailer.js');
+const mailer = require('./../controllers/mailer');
 
 const mailerRouteConfig = router => {
   router.post('/emailList', mailer.massMailer);
