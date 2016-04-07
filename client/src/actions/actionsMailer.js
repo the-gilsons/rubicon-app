@@ -36,8 +36,42 @@ export function addFileData(data){
   }
 }
 
+export function postData(){
+  return {
+    type: actions.POST_DATA
+  }
+}
+
+export function postDataSuccess(){
+  return {
+    type: actions.POST_DATA_SUCCESS
+  }
+}
+
+export function postDataFailure(error){
+  return {
+    type: actions.POST_DATA_FAILURE,
+    error
+  }
+}
+
 export function postDocuSignInfo(items){
   return function(dispatch){
-
+    dispatch(postData());
+    fetch('/api/emailList', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(items)
+    })
+    .then(function(reponse){
+      if (response.status >= 200 && response.status < 300) {
+        dispatch(postDataSuccess());
+      } else {
+        let error = new Error(response.statusText);
+        dispatch(postDataFailure(error));
+      }
+    })
   }
 }
