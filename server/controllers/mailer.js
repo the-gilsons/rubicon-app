@@ -5,26 +5,42 @@ const async = require('async');
 module.exports = {
   massMailer: function(req, res) {
 
-    const emailList = req.body.emailList;
+    console.log(Object.keys(req.body));
+
+    const emailList = JSON.parse(req.body.emailList);
     const docuSignEmail = req.body.docuSignEmail;
     const docuSignPass = req.body.docuSignPass;
-    const templateInfo = req.body.templateInfo;
+    const templateInfo = {
+      id: req.body.templateID,
+      roleName: req.body.templateName
+    };
 
-    let count = 0;
 
     var emailToSend = emailList.map(function(item){
         return function(callback){
           mailer(docuSignEmail, docuSignPass, item, templateInfo, callback);
         };
-    })
+    });
 
     async.parallel(emailToSend, function(err, logs){
-      if(logs.length){
-          console.log('Some emails failed to send!');
-          res.status(400);
-          res.send(JSON.stringify(logs));
+      if(err){
+        console.log(err);
+        res.status(400);
+        res.send(JSON.stringify(err));
       } else {
-          res.send('Operation Successful');
+        var errorLog = [];
+        logs.forEach(function(item){
+          if (item !== undefined){
+            errorLog.push(item);
+          }
+        });
+        if(errorLog.length){
+            console.log('Some emails failed to send!');
+            res.status(400);
+            res.send(JSON.stringify(errorLog));
+        } else {
+            res.send('Operation Successful');
+        }
       }
     });
   
