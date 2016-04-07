@@ -3,14 +3,15 @@ var request = require('request');
 var url = "https://demo.docusign.net/restapi/v2/login_information";
 var body = "";
 var integratorKey = 'MAKE-04a8d9bd-6bec-4a62-a9a9-161fbcfd6b2f';
+var errorLog = [];
 
-module.exports = function(email, password, recipientInfo, templateInfo) {
+module.exports = function(email, password, recipientInfo, templateInfo, last, callNext) {
 	async.waterfall([
 		function login(next){
 			var options = initializeRequest(url, "GET", body, email, password);
 			request(options, function(err, res, body) {
 				if(!parseResponseBody(err, res, body)) {
-					console.log(err);
+					callNext([JSON.parse(body).errorCode]);
 					return;
 				}
 				baseUrl = JSON.parse(body).loginAccounts[0].baseUrl;
@@ -36,7 +37,17 @@ module.exports = function(email, password, recipientInfo, templateInfo) {
 
 			// send the request...
 			request(options, function(err, res, body) {
-				console.log(body);
+				var report = JSON.parse(body);
+				if(!parseResponseBody(err, res, body)){
+					console.log(report);
+					errorLog.push(recipientInfo);
+				}
+				if(last){
+					callNext(errorLog);
+					errorLog = [];
+				} else {
+					callNext();
+				}
 			});
 		}
 	]);
