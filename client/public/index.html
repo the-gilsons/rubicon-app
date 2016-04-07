@@ -3,24 +3,42 @@
   <head>
     <meta charset="UTF-8">
     <title>Team Rubicon</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </head>
   <body>
-    <h1>Team Rubicon</h1>
-    <form action="/email" method="post">
-    	DocuSign Email: <input type="text" name="docuSignEmail"><br>
-    	DocuSign Password: <input type="text" name="docuSignPass"><br>
-    	Docusign Template ID: <input type="text" name="templateID"><br>
-    	DocuSign Template Name: <input type="text" name="templateName"><br>
-    	CSV File: <input type="file" id="csv">
-    	<button>Send Documents to fill!</button>
-    </form>
+    <div class="panel panel-blue">
+    	<div class="panel-heading">
+		    <h3 class="panel-title">Team Rubicon</h3>
+    	</div>
+    	<div class="panel-body">
+		    <form action="/api/emailList" method="post">
+		    	<div class="form-group">
+			    	<label>DocuSign Email:</label>
+			    	<input type="text" name="docuSignEmail">
+		    	</div>
+		    	<div class="form-group">
+			    	<label>DocuSign Password:</label>
+			    	<input type="text" name="docuSignPass">
+		    	</div>
+		    	<div class="form-group">
+			    	<label>Docusign Template ID:</label>
+			    	<input type="text" name="templateID">
+		    	</div>
+		    	<div class="form-group">
+			    	<label>DocuSign Template Name:</label>
+			    	<input type="text" name="templateName">
+		    	</div>
+		    	<div class="form-group">
+			    	<label>CSV File:</label>
+			    	<input type="file" id="csv">
+		    	</div>
+		    	<button>Send Documents to sign!</button>
+		    </form>
+    	</div>
+    </div>
     <div id="app"></div>
     <script src='/dist/bundle.js'></script>
-    <script type="text/javascript">
-    	var fetch = function(){
-
-    	}
-    </script>
   </body>
 </html>
