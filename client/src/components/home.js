@@ -44,7 +44,7 @@ export default class Home extends React.Component{
       </div>
       <Button callback={this.handlePost.bind(this)} data={{text: 'Send Emails' }}/>
       </form>
-      <p>{message}</p>
+      <p className="errorMsg"><strong>{message}</strong></p>
       </div>
     )
   }

@@ -37,6 +37,14 @@ label {
 .dropZone {
   display: inline-flex;
 }
+
+.errorMsg {
+  color: red;
+}
+
+#instructions {
+  margin: 150px;
+}
 /*
 .panel-body {
   margin: 10px;
