@@ -58,7 +58,7 @@ export function postDataFailure(error){
 export function postDocuSignInfo(items){
   return function(dispatch){
     dispatch(postData());
-    fetch('/api/emailList', {
+    return fetch('/api/emailList', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -66,7 +66,7 @@ export function postDocuSignInfo(items){
       },
       body: JSON.stringify(items)
     })
-    .then(function(reponse){
+    .then(function(response){
       if (response.status >= 200 && response.status < 300) {
         dispatch(postDataSuccess());
       } else {
