@@ -49,7 +49,7 @@ export default function mailer(state = initialState, action){
       return Object.assign({}, state, {
         isPostingData: false,
         postingDataFailure: true,
-        errorMsg: action.error
+        errorMsg: 'Error: Unable to send emails'
       })
     default:
       return state;

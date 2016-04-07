@@ -21,7 +21,9 @@ export default class Home extends React.Component{
   }
 
   render(){
-    //let disableButton = !this.props.data.canSubmit;
+    let disableButton = !this.props.data.canSubmit;
+    let message = this.props.data.errorMsg !== '' ? this.props.data.errorMsg : '';
+
     return (
       <div className="container">
       <h3 className="title">Team Rubicon DocuSign Mailer</h3>
@@ -43,6 +45,7 @@ export default class Home extends React.Component{
       </div>
       <Button callback={this.handlePost.bind(this)} data={{text: 'Send Emails' }}/>
       </form>
+      <p>{message}</p>
       </div>
     )
   }
