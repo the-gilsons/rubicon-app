@@ -8,15 +8,14 @@ export default class Home extends React.Component{
     super(props)
   }
 
-  handlePost(e){
-    e.preventDefault;
+  handlePost(){
     this.props.postMailerInfo({
       emailList: this.props.data.fileInfo,
-      docuSignEmail: this.refs.dsEmail.value,
-      docuSignPass: this.refs.dsPassword.value,
+      docuSignEmail: this.props.data.docuSignEmail,
+      docuSignPass: this.props.data.docuSignPassword,
       templateInfo: {
-        id: this.refs.dsTempId.value,
-        role: this.refs.dsTempName
+        id: this.props.data.templateID,
+        role: this.props.data.templateName
       }
     });
   }
@@ -42,7 +41,7 @@ export default class Home extends React.Component{
       <div className="form-group">
       <FileParser addFileData={this.props.addFileData}/>
       </div>
-      <Button callback={this.handlePost} data={{text: 'Submit' }}/>
+      <Button callback={this.handlePost.bind(this)} data={{text: 'Send Emails' }}/>
       </form>
       </div>
     )

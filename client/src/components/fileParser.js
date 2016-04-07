@@ -8,8 +8,8 @@ export default class FileParser extends React.Component{
     let file = files[0];
     // console.log(file, papaParse.parse);
     let parsedData = papaParse.parse(file, {
-      header: true, 
-      
+      header: true,
+
       complete: results => {
       this.props.addFileData(results.data.map(item => {
         return {
@@ -18,16 +18,15 @@ export default class FileParser extends React.Component{
         }
       }));
     }});
-    // this.props.addFileData(parsedData);
   }
-  
+
   onDrop(files) {
     console.log('received files: ', files);
   }
-  
+
   render(){
     return (
-      
+
       <div>
         <Dropzone onDrop={this.handleFile.bind(this)}>
           <div>Drop a csv or txt file</div>
