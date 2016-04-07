@@ -22,6 +22,6 @@ Clone the repo and install the necessary node modules:
 
 ```shell
 $ git clone https://github.com/the-gilsons/rubicon-app.git
-$ cd chutte
+$ cd rubicon-app
 $ npm install                   # Install Node modules listed in ./package.json
 ```
