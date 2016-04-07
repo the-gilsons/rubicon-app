@@ -10,46 +10,9 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <!-- <div class="panel panel-blue">
-    <div class="panel panel-blue"> -->
-
     	<div class="panel-heading">
         <img class="logo" src="./assets/trL.png">
     	</div>
-
-    	<!--<div class="panel-body">
-		    <form action="/api/emailList" method="post">
-
-		    	<div class="form-group">
-			    	<label>DocuSign Email:</label>
-			    	<input type="text" name="docuSignEmail" placeholder="DocuSign Login Email" required>
-		    	</div>
-
-        	<div class="form-group">
-			    	<label>DocuSign Password:</label>
-			    	<input type="text" name="docuSignPass" placeholder="DocuSign Password" required>
-		    	</div>
-
-        	<div class="form-group">
-			    	<label>Docusign Template ID:</label>
-			    	<input type="text" name="templateID" placeholder="DocuSign Template ID" required>
-		    	</div>
-
-        	<div class="form-group">
-			    	<label>DocuSign Template Name:</label>
-			    	<input type="text" name="templateName" placeholder="Form Name" required>
-		    	</div>
-
-        	<div class="form-group">
-			    	<label>CSV File:</label>
-			    	<input multiple type="file" id="csv">
-		    	</div>
-
-        	<input type="hidden" id="parsedCSV" name="emailList">
-		    	<button>Send Documents to sign!</button>
-		    </form>
-    	</div>
-    </div> -->
     <div id="app"></div>
     <script src='/dist/bundle.js'></script>
     <div id="instructions">
@@ -59,7 +22,7 @@
         </p>
         <p>
             The next two boxes take the id of the DocuSign template you wish to use and its name, respectively. The name can be whatever you want. The template id must be obtained from DocuSign's website. For instructions on how to find your Docusign template id, <a href="https://www.docusign.com/DocuSignHelp/Content/template-id.htm">click here.</a>
-        </p> 
+        </p>
         <p>
             The last input required is the csv file to be parsed. The csv file must have the following three columns in the top row in order to be parsed correctly: first_name, last_name, and email. Please note that the names must be exactly the same as what was just listed. It is highly recommended that only .csv file types are used. Other file types have not been tested, and may not work.
         </p>
@@ -67,33 +30,5 @@
             When all of the inputs have been filled out, simply click the send emails button, and our server will do the rest of the work. Depending on the size of the file, it might take some time to send all the emails.
         </p>
     </div>
-    <!-- <script type="text/javascript">
-
-    </div>
-    <div id="app"></div>
-    <script src='/dist/bundle.js'></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-    	$('button').prop('disabled', true);
-    	$('#csv').on('change', function(){
-
-    		Papa.parse($(this)[0].files[0], {
-    			header: true,
-    			complete: function(results){
-    				console.log(results);
-    				var toSend = [];
-    				results.data.forEach(function(item){
-    					toSend.push({
-    						name: item.first_name + ' ' + item.last_name,
-    						email: item.email
-    					});
-    				});
-    				$('#parsedCSV').val(JSON.stringify(toSend));
-    				$('button').prop('disabled', false);
-    			}
-    		});
-
-    	});
-    </script> -->
   </body>
 </html>
