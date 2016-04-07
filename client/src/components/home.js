@@ -25,8 +25,7 @@ export default class Home extends React.Component{
     let message = this.props.data.errorMsg !== '' ? this.props.data.errorMsg : '';
 
     return (
-      <div className="container">
-      <h3 className="title">Team Rubicon DocuSign Mailer</h3>
+      <div className="container panel-body">
       <form>
       <div className="form-group">
       <Input data={{title: 'DocuSign Email', ref: 'dsEmail', type:'email'}} callback={this.props.addEmail}/>

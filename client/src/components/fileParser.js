@@ -27,7 +27,7 @@ export default class FileParser extends React.Component{
   render(){
     return (
 
-      <div>
+      <div className="dropZone">
         <Dropzone onDrop={this.handleFile.bind(this)}>
           <div>Drop a csv or txt file</div>
         </Dropzone>
