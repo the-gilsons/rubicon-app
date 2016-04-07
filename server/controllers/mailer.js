@@ -21,6 +21,7 @@ module.exports = {
         }, function(err){
             if(err.length > 0){
                 console.log(err);
+                res.status(400);
                 res.send(JSON.stringify(err));
             } else {
                 res.send('Operation Successful');
