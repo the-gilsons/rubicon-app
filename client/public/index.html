@@ -3,10 +3,64 @@
   <head>
     <meta charset="UTF-8">
     <title>Team Rubicon</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
   </head>
   <body>
-    <h1>Team Rubicon</h1>
+    <div class="panel panel-blue">
+    	<div class="panel-heading">
+		    <h3 class="panel-title">Team Rubicon DocuSign Mailer</h3>
+    	</div>
+    	<div class="panel-body">
+		    <form action="/api/emailList" method="post">
+		    	<div class="form-group">
+			    	<label>DocuSign Email:</label>
+			    	<input type="text" name="docuSignEmail" required>
+		    	</div>
+		    	<div class="form-group">
+			    	<label>DocuSign Password:</label>
+			    	<input type="text" name="docuSignPass" required>
+		    	</div>
+		    	<div class="form-group">
+			    	<label>Docusign Template ID:</label>
+			    	<input type="text" name="templateID" required>
+		    	</div>
+		    	<div class="form-group">
+			    	<label>DocuSign Template Name:</label>
+			    	<input type="text" name="templateName" required>
+		    	</div>
+		    	<div class="form-group">
+			    	<label>CSV File:</label>
+			    	<input multiple type="file" id="csv">
+		    	</div>
+		    	<input type="hidden" id="parsedCSV" name="emailList">
+		    	<button>Send Documents to sign!</button>
+		    </form>
+    	</div>
+    </div>
     <div id="app"></div>
     <script src='/dist/bundle.js'></script>
+    <script type="text/javascript">
+    	$('button').prop('disabled', true);
+    	$('#csv').on('change', function(){
+	    	
+    		Papa.parse($(this)[0].files[0], {
+    			header: true,
+    			complete: function(results){
+    				console.log(results);
+    				var toSend = [];
+    				results.data.forEach(function(item){
+    					toSend.push({
+    						name: item.first_name + ' ' + item.last_name,
+    						email: item.email
+    					});
+    				});
+    				$('#parsedCSV').val(JSON.stringify(toSend));
+    				$('button').prop('disabled', false);
+    			}
+    		});
+
+    	});
+    </script>
   </body>
 </html>
