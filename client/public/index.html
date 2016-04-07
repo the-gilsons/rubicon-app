@@ -3,11 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <title>Team Rubicon</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
   </head>
   <body>
-    <div class="panel panel-blue">
+    <!-- <div class="panel panel-blue">
     	<div class="panel-heading">
 		    <h3 class="panel-title">Team Rubicon DocuSign Mailer</h3>
     	</div>
@@ -37,13 +36,13 @@
 		    	<button>Send Documents to sign!</button>
 		    </form>
     	</div>
-    </div>
+    </div> -->
     <div id="app"></div>
     <script src='/dist/bundle.js'></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
     	$('button').prop('disabled', true);
     	$('#csv').on('change', function(){
-	    	
+
     		Papa.parse($(this)[0].files[0], {
     			header: true,
     			complete: function(results){
@@ -61,6 +60,6 @@
     		});
 
     	});
-    </script>
+    </script> -->
   </body>
 </html>
