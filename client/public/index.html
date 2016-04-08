@@ -3,64 +3,32 @@
   <head>
     <meta charset="UTF-8">
     <title>Team Rubicon</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <div class="panel panel-blue">
     	<div class="panel-heading">
-		    <h3 class="panel-title">Team Rubicon DocuSign Mailer</h3>
+        <img class="logo" src="./assets/trL.png">
     	</div>
-    	<div class="panel-body">
-		    <form action="/api/emailList" method="post">
-		    	<div class="form-group">
-			    	<label>DocuSign Email:</label>
-			    	<input type="text" name="docuSignEmail" required>
-		    	</div>
-		    	<div class="form-group">
-			    	<label>DocuSign Password:</label>
-			    	<input type="text" name="docuSignPass" required>
-		    	</div>
-		    	<div class="form-group">
-			    	<label>Docusign Template ID:</label>
-			    	<input type="text" name="templateID" required>
-		    	</div>
-		    	<div class="form-group">
-			    	<label>DocuSign Template Name:</label>
-			    	<input type="text" name="templateName" required>
-		    	</div>
-		    	<div class="form-group">
-			    	<label>CSV File:</label>
-			    	<input multiple type="file" id="csv">
-		    	</div>
-		    	<input type="hidden" id="parsedCSV" name="emailList">
-		    	<button>Send Documents to sign!</button>
-		    </form>
-    	</div>
-    </div>
     <div id="app"></div>
     <script src='/dist/bundle.js'></script>
-    <script type="text/javascript">
-    	$('button').prop('disabled', true);
-    	$('#csv').on('change', function(){
-	    	
-    		Papa.parse($(this)[0].files[0], {
-    			header: true,
-    			complete: function(results){
-    				console.log(results);
-    				var toSend = [];
-    				results.data.forEach(function(item){
-    					toSend.push({
-    						name: item.first_name + ' ' + item.last_name,
-    						email: item.email
-    					});
-    				});
-    				$('#parsedCSV').val(JSON.stringify(toSend));
-    				$('button').prop('disabled', false);
-    			}
-    		});
-
-    	});
-    </script>
+    <div id="instructions">
+        <h1>HOW TO USE</h1>
+        <p>
+            The top two boxes take your DocuSign email and password, respectively.
+        </p>
+        <p>
+            The next two boxes take the id of the DocuSign template you wish to use and its name, respectively. The name can be whatever you want. The template id must be obtained from DocuSign's website. For instructions on how to find your Docusign template id, <a href="https://www.docusign.com/DocuSignHelp/Content/template-id.htm">click here.</a>
+        </p>
+        <p>
+            The last input required is the csv file to be parsed. The csv file must have the following three columns in the top row in order to be parsed correctly: first_name, last_name, and email. Please note that the names must be exactly the same as what was just listed. It is highly recommended that only .csv file types are used. Other file types have not been tested, and may not work.
+        </p>
+        <p>
+            When all of the inputs have been filled out, simply click the send emails button, and our server will do the rest of the work. Depending on the size of the file, it might take some time to send all the emails.
+        </p>
+    </div>
   </body>
 </html>

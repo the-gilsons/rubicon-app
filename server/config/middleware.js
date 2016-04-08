@@ -1,6 +1,7 @@
 'use strict'
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const compression = require('compression');
 const utils = require('./utils');
 const joinPaths = require('path').join;
 const userRouterConfig = require('./../routes/userRoutes');
@@ -13,6 +14,9 @@ const applyMiddleware = (app, express) => {
   
   // morgan for loggin our incoming requests during development
   app.use(morgan('dev'));
+  
+  // compression middleware for gzip compression 
+  app.use(compression());
   
   //body parser middleware to parse the data in our incoming requests
   app.use(bodyParser.json());

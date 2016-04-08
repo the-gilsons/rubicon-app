@@ -4,21 +4,24 @@ var url = "https://demo.docusign.net/restapi/v2/login_information";
 var body = "";
 var integratorKey = 'MAKE-04a8d9bd-6bec-4a62-a9a9-161fbcfd6b2f';
 
-module.exports = function(email, password, recipientInfo, templateInfo) {
+module.exports = function(email, password, recipientInfo, templateInfo, callNext) {
+	console.log('before waterfall', templateInfo)
 	async.waterfall([
 		function login(next){
 			var options = initializeRequest(url, "GET", body, email, password);
 			request(options, function(err, res, body) {
 				if(!parseResponseBody(err, res, body)) {
-					console.log(err);
+					callNext([JSON.parse(body).errorCode]);
 					return;
 				}
 				baseUrl = JSON.parse(body).loginAccounts[0].baseUrl;
+				console.log('first step', templateInfo);
 				next(null, baseUrl); // call next function
 			});
 		},
 
 		function generateEnvelope(baseUrl, next){
+			console.log('second step', templateInfo);
 			var url  = baseUrl + "/envelopes";
 			var body = JSON.stringify({
 					"emailSubject": "DocuSign API call - Request Signature",
@@ -36,7 +39,13 @@ module.exports = function(email, password, recipientInfo, templateInfo) {
 
 			// send the request...
 			request(options, function(err, res, body) {
-				console.log(body);
+				var report = JSON.parse(body);
+				if(!parseResponseBody(err, res, body)){
+					console.log(report);
+					callNext(null, recipientInfo);
+				} else {
+					callNext();
+				}				
 			});
 		}
 	]);
