@@ -12,10 +12,16 @@ export default class Input extends React.Component{
 
   render(){
     return(
-      <div>
-        <label htmlFor={this.props.data.title}>{this.props.data.title}</label>
-        <input type={this.props.data.type} id={this.props.data.title} ref={this.props.data.ref} onBlur={this.handleInput.bind(this)}/>
-      </div>
+      <fieldset className="form-group">
+        <label htmlFor={this.props.data.title}>
+        {this.props.data.title}
+        </label>
+        <input type={this.props.data.type} 
+        id={this.props.data.title} 
+        ref={this.props.data.ref} 
+        onBlur={this.handleInput.bind(this)}
+        className="form-control"/>
+      </fieldset>
     )
   }
 }
