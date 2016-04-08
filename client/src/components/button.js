@@ -13,7 +13,10 @@ export default class Button extends React.Component{
   render(){
     return (
       <div>
-        <button onClick={this.handleSubmit.bind(this)}>{this.props.data.text}</button>
+        <button className="btn btn-danger" 
+        onClick={this.handleSubmit.bind(this)}>
+        {this.props.data.text}
+        </button>
       </div>
     )
   }

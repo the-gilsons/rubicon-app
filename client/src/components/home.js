@@ -25,26 +25,38 @@ export default class Home extends React.Component{
     let message = this.props.data.errorMsg !== '' ? this.props.data.errorMsg : '';
 
     return (
-      <div className="container panel-body">
-      <form>
-      <div className="form-group">
-      <Input data={{title: 'DocuSign Email', ref: 'dsEmail', type:'email'}} callback={this.props.addEmail}/>
-      </div>
-      <div className="form-group">
-      <Input data={{title: 'DocuSign Password', ref: 'dsPassword', type:'password'}} callback={this.props.addPassword}/>
-      </div>
-      <div className="form-group">
-      <Input data={{title: 'DocuSign Template ID', ref: 'dsTempId', type:'text'}} callback={this.props.addTemplateId}/>
-      </div>
-      <div className="form-group">
-      <Input data={{title: 'DocuSign Template Name', ref: 'dsTempName', type:'text'}} callback={this.props.addTemplateName}/>
-      </div>
-      <div className="form-group">
-      <FileParser addFileData={this.props.addFileData}/>
-      </div>
-      <Button callback={this.handlePost.bind(this)} data={{text: 'Send Emails' }}/>
-      </form>
-      <p className="errorMsg"><strong>{message}</strong></p>
+      <div className="container">
+        <form className="form-control-static">
+  
+          <Input data={{title: 'DocuSign Email', 
+          ref: 'dsEmail', 
+          type:'email'}} 
+          callback={this.props.addEmail}/>
+
+
+            <Input data={{title: 'DocuSign Password', 
+            ref: 'dsPassword', 
+            type:'password'}} 
+            callback={this.props.addPassword}/>
+
+            <Input data={{title: 'DocuSign Template ID', 
+            ref: 'dsTempId', 
+            type:'text'}} 
+            callback={this.props.addTemplateId}/>
+
+            <Input data={{title: 'DocuSign Template Name', 
+            ref: 'dsTempName', 
+            type:'text'}} 
+            callback={this.props.addTemplateName}/>
+  
+   
+            <FileParser addFileData={this.props.addFileData}/>
+  
+          <Button callback={this.handlePost.bind(this)} 
+          data={{text: 'Send Emails' }}/>
+          
+          {message ? (<div className="alert alert-danger" role="alert"><strong>{message}</strong></div>) : (<div></div>)}
+        </form>
       </div>
     )
   }

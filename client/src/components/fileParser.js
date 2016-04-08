@@ -15,7 +15,7 @@ export default class FileParser extends React.Component{
         return {
           name: `${item.first_name} ${item.last_name}`,
           email: item.email
-        }
+        };
       }));
     }});
   }

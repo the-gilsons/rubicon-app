@@ -9,12 +9,12 @@ body{
 
   min-width: 100%;
 }
-.panel-body{
-  display: inline-flex;
+.container{
   padding: 25px;
   margin-top: 20px;
-  margin-left: 30%;
-  /*margin-right: 50%;*/
+  display: inline-flex;
+
+  margin-left: 31%;
   border: 2px solid black;
   border-radius: 4px;
 }
@@ -28,12 +28,18 @@ body{
 }
 
 button {
-  margin-left: 25%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.form-group {
+  width: 500px;
 }
 
 label {
-  padding-right: 10px;
+ 
 }
+
 .dropZone {
   display: inline-flex;
 }
@@ -44,6 +50,10 @@ label {
 
 #instructions {
   margin: 150px;
+}
+
+.alert {
+  margin-top: 10px;
 }
 /*
 .panel-body {
