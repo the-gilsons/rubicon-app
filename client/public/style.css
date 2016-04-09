@@ -37,11 +37,15 @@ button {
 }
 
 label {
- 
+
 }
 
 .dropZone {
   display: inline-flex;
+}
+
+.dropMsg {
+  padding: 5px;
 }
 
 .errorMsg {
