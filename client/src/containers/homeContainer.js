@@ -16,6 +16,9 @@ function mapDispatchToProps(dispatch){
     addTemplateName: function(name){
       dispatch(actions.addDocuSignTempName(name));
     },
+    addFileName: function(file){
+      dispatch(actions.addFileName(file));
+    },
     addFileData: function(data){
       dispatch(actions.addFileData(data));
     },

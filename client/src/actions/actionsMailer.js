@@ -29,6 +29,13 @@ export function addDocuSignTempName(templateName){
   }
 }
 
+export function addFileName(fileName){
+  return {
+    type: actions.ADD_FILE_NAME,
+    fileName
+  }
+}
+
 export function addFileData(data){
   return {
     type: actions.ADD_FILE_DATA,
