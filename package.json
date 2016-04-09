@@ -7,7 +7,8 @@
     "start:dev": "nodemon server/server",
     "start": "node server/server",
     "build": "node_modules/.bin/webpack",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "build:watch": "node_modules/.bin/webpack --watch"
   },
   "engines": {
     "node": "5.10.0",

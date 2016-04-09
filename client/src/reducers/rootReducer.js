@@ -5,6 +5,7 @@ const initialState = {
   docuSignPassword: '',
   templateID: '',
   templateName: '',
+  fileName: '',
   fileInfo: [],
   canSubmit: false,
   isPostingData: false,
@@ -30,6 +31,10 @@ export default function mailer(state = initialState, action){
     case actions.DS_TEMPLATE_NAME:
       return Object.assign({}, state, {
         templateName: action.templateName
+      });
+    case actions.ADD_FILE_NAME:
+      return Object.assign({}, state, {
+        fileName: action.fileName
       });
     case actions.ADD_FILE_DATA:
       return Object.assign({}, state, {
