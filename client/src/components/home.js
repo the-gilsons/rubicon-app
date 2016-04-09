@@ -53,7 +53,7 @@ export default class Home extends React.Component{
           <FileParser addFileData={this.props.addFileData} addFileName={this.props.addFileName} fileName={this.props.data.fileName}/>
 
           <Button callback={this.handlePost.bind(this)}
-          data={{text: 'Send Emails' }}/>
+          data={{text: 'Send Emails', isDisabled: !this.props.data.canSubmit }}/>
 
           {message ? (<div className="alert alert-danger" role="alert"><strong>{message}</strong></div>) : (<div></div>)}
         </form>

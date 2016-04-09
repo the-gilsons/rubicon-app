@@ -13,8 +13,8 @@ export default class Button extends React.Component{
   render(){
     return (
       <div>
-        <button className="btn btn-danger" 
-        onClick={this.handleSubmit.bind(this)}>
+        <button className="btn btn-danger"
+        onClick={this.handleSubmit.bind(this)} disabled={this.props.data.isDisabled}>
         {this.props.data.text}
         </button>
       </div>
