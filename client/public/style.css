@@ -41,11 +41,24 @@ label {
 }
 
 .dropZone {
-  display: inline-flex;
+  /*display: inline-flex;*/
+}
+
+.dropContainer{
+  display: flex;
+  flex-direction: column;
 }
 
 .dropMsg {
+  margin: auto;
   padding: 5px;
+  color: #d9534f;
+}
+
+.dropIcon {
+  margin: auto;
+  color: #d9534f;
+  padding-top: 40px;
 }
 
 .errorMsg {
