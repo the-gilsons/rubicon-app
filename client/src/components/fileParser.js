@@ -29,7 +29,10 @@ export default class FileParser extends React.Component{
     return (
       <div className="dropZone">
         <Dropzone onDrop={this.handleFile.bind(this)}>
-          <div className='dropMsg'>{dropMsg}</div>
+          <div className="dropContainer">
+              <div className="dropMsg"><strong>{dropMsg}</strong></div>
+              <div className="dropIcon"><span><i className="fa fa-file fa-2x"/></span></div>
+          </div>
         </Dropzone>
       </div>
     )
