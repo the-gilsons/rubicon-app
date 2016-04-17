@@ -63,23 +63,26 @@ export function postDataFailure(error){
 }
 
 export function postDocuSignInfo(items){
-  return function(dispatch){
-    dispatch(postData());
-    return fetch('/api/emailList', {
-      method: 'post',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(items)
-    })
-    .then(function(response){
-      if (response.status >= 200 && response.status < 300) {
-        dispatch(postDataSuccess());
-      } else {
-        let error = new Error(response.statusText);
-        dispatch(postDataFailure(error));
-      }
-    })
+  return function(dispatch, getState){
+    let state = getState();
+    if(!state.isPostingData){
+      dispatch(postData());
+      return fetch('/api/emailList', {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(items)
+      })
+      .then(function(response){
+        if (response.status >= 200 && response.status < 300) {
+          dispatch(postDataSuccess());
+        } else {
+          let error = new Error(response.statusText);
+          dispatch(postDataFailure(error));
+        }
+      })
+    }
   }
 }

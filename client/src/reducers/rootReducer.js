@@ -43,12 +43,14 @@ export default function mailer(state = initialState, action){
       });
     case actions.POST_DATA:
       return Object.assign({}, state, {
-        isPostingData: true
+        isPostingData: true,
+        canSubmit: false
       });
     case actions.POST_DATA_SUCCESS:
       return Object.assign({}, state, {
         isPostingData: false,
-        postingDataSuccess: true
+        postingDataSuccess: true,
+        errorMsg: ''
       });
     case actions.POST_DATA_FAILURE:
       return Object.assign({}, state, {
