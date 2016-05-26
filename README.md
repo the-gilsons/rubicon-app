@@ -6,7 +6,7 @@ This application is meant to help Team Rubicon mobilize its members during an ac
 - deployed [here](https://gilson.herokuapp.com)
 
 ## Team Gilson
-- Mike, Eliott, Sean, Malek, Brandon
+- Mike, Elliot, Sean, Malek, Brandon
 
 
 ---
